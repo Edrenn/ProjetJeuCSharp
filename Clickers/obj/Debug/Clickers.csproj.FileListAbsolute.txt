@@ -1,0 +1,46 @@
+c:\users\edern\documents\visual studio 2015\Projects\Clickers\Clickers\bin\Debug\Clickers.exe.config
+c:\users\edern\documents\visual studio 2015\Projects\Clickers\Clickers\bin\Debug\Clickers.exe
+c:\users\edern\documents\visual studio 2015\Projects\Clickers\Clickers\bin\Debug\Clickers.pdb
+c:\users\edern\documents\visual studio 2015\Projects\Clickers\Clickers\obj\Debug\Clickers.csprojResolveAssemblyReference.cache
+c:\users\edern\documents\visual studio 2015\Projects\Clickers\Clickers\obj\Debug\MainWindow.g.cs
+c:\users\edern\documents\visual studio 2015\Projects\Clickers\Clickers\obj\Debug\App.g.cs
+c:\users\edern\documents\visual studio 2015\Projects\Clickers\Clickers\obj\Debug\Clickers_MarkupCompile.cache
+c:\users\edern\documents\visual studio 2015\Projects\Clickers\Clickers\obj\Debug\Clickers_MarkupCompile.lref
+c:\users\edern\documents\visual studio 2015\Projects\Clickers\Clickers\obj\Debug\MainWindow.baml
+c:\users\edern\documents\visual studio 2015\Projects\Clickers\Clickers\obj\Debug\Clickers.g.resources
+c:\users\edern\documents\visual studio 2015\Projects\Clickers\Clickers\obj\Debug\Clickers.Properties.Resources.resources
+c:\users\edern\documents\visual studio 2015\Projects\Clickers\Clickers\obj\Debug\Clickers.csproj.GenerateResource.Cache
+c:\users\edern\documents\visual studio 2015\Projects\Clickers\Clickers\obj\Debug\Clickers.exe
+c:\users\edern\documents\visual studio 2015\Projects\Clickers\Clickers\obj\Debug\Clickers.pdb
+D:\Workspaces\Clickers\Clickers\bin\Debug\Clickers.exe.config
+D:\Workspaces\Clickers\Clickers\obj\Debug\Clickers.exe
+D:\Workspaces\Clickers\Clickers\obj\Debug\Clickers.pdb
+D:\Workspaces\Clickers\Clickers\bin\Debug\Clickers.exe
+D:\Workspaces\Clickers\Clickers\bin\Debug\Clickers.pdb
+D:\Workspaces\Clickers\Clickers\bin\Debug\EntityFramework.dll
+D:\Workspaces\Clickers\Clickers\bin\Debug\EntityFramework.SqlServer.dll
+D:\Workspaces\Clickers\Clickers\bin\Debug\Faker.dll
+D:\Workspaces\Clickers\Clickers\bin\Debug\MySql.Data.dll
+D:\Workspaces\Clickers\Clickers\bin\Debug\mysql.data.entity.EF6.dll
+D:\Workspaces\Clickers\Clickers\bin\Debug\Newtonsoft.Json.dll
+D:\Workspaces\Clickers\Clickers\bin\Debug\EntityFramework.xml
+D:\Workspaces\Clickers\Clickers\bin\Debug\EntityFramework.SqlServer.xml
+D:\Workspaces\Clickers\Clickers\bin\Debug\Newtonsoft.Json.xml
+D:\Workspaces\Clickers\Clickers\obj\Debug\Clickers.csprojResolveAssemblyReference.cache
+D:\Workspaces\Clickers\Clickers\obj\Debug\MainWindow.g.cs
+D:\Workspaces\Clickers\Clickers\obj\Debug\App.g.cs
+D:\Workspaces\Clickers\Clickers\obj\Debug\Clickers_MarkupCompile.cache
+D:\Workspaces\Clickers\Clickers\obj\Debug\Clickers_MarkupCompile.lref
+D:\Workspaces\Clickers\Clickers\obj\Debug\MainWindow.baml
+D:\Workspaces\Clickers\Clickers\obj\Debug\Clickers.g.resources
+D:\Workspaces\Clickers\Clickers\obj\Debug\Clickers.Properties.Resources.resources
+D:\Workspaces\Clickers\Clickers\obj\Debug\Clickers.csproj.GenerateResource.Cache
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\BaguetteView.g.cs
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\BaguetteView.baml
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\MainCastleView.g.cs
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\MainCastleView.baml
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\GoldFieldView.g.cs
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\GoldFieldView.baml
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\InfoBarUserControl.g.cs
+D:\Workspaces\Clickers\Clickers\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\InfoBarUserControl.baml
