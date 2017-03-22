@@ -1,5 +1,4 @@
 ﻿using Clickers.DataBaseManager;
-using Clickers.Models.RepetitingItems;
 using Clickers.Views;
 using System;
 using System.Collections.Generic;
@@ -46,11 +45,14 @@ namespace Clickers
         }
         #endregion
 
-        public void UsineProduction(int productSpeed, int quantityProduct)
+        public void UsineProduction(int delay, int quantityProduct,CancellationTokenSource CTS)
         {
-            Thread.Sleep(productSpeed);
-            GoldCounter = GoldCounter + quantityProduct;
-            UsineProduction(productSpeed, quantityProduct);
+            if (CTS.IsCancellationRequested == false)
+            {
+                Thread.Sleep(delay);
+                GoldCounter = GoldCounter + quantityProduct;
+                UsineProduction(delay, quantityProduct,CTS);
+            }
         }
 
         protected void RaisePropertyChanged(string name)

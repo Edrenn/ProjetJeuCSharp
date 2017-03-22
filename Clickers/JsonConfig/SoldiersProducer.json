@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Caserne",
+    "Price": "150",
+    "Level": "1",
+    "IsActive": "false",
+    "allUnitsType": [
+      "Pécore",
+      "Chevalier",
+      "Garde d'élite"
+    ]
+
+
+    }
+]

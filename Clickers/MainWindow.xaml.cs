@@ -1,5 +1,4 @@
 ﻿using Clickers.DataBaseManager;
-using Clickers.Models.RepetitingItems;
 using Clickers.ViewModel;
 using Clickers.Views;
 using System;

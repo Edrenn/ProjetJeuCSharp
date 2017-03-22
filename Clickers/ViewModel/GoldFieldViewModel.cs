@@ -1,4 +1,6 @@
-﻿using Clickers.Views;
+﻿using Clickers.DataBaseManager;
+using Clickers.Models;
+using Clickers.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +17,12 @@ namespace Clickers.ViewModel
         GoldFieldView view;
         private int goldCounter = 0;
         public event PropertyChangedEventHandler PropertyChanged;
+        MySQLManager<RessourceProducer> mySQLManager = new MySQLManager<RessourceProducer>();
+        RessourceProducer producer = null;
+        RessourceProducer producer2 = null;
+        RessourceProducer producer3 = null;
+        RessourceProducer producer4 = null;
         #endregion
-
         #region Properties
         public int GoldCounter
         {
@@ -38,6 +44,14 @@ namespace Clickers.ViewModel
             EventGenerator();
             view.DataContext = GameViewModel.Instance;
             
+        }
+
+        public GoldFieldViewModel()
+        {
+            this.view = new GoldFieldView();
+            EventGenerator();
+            view.DataContext = GameViewModel.Instance;
+
         }
 
         private void EventGenerator()
@@ -62,105 +76,72 @@ namespace Clickers.ViewModel
 
         private void UsineFourButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (producer4 == null)
             {
-                if (GameViewModel.Instance.GoldCounter < 40)
-                {
-                    int rest = 40 - GameViewModel.Instance.GoldCounter;
-                    view.UsineFourButton.Content = "Reste : " + rest.ToString();
-                }
-                else
-                {
-                    GameViewModel.Instance.GoldCounter = GameViewModel.Instance.GoldCounter - 30;
-                    view.UsineFourButton.IsEnabled = false;
-                    view.labelFour.Content = "Activé : 1000g/60s";
-                    view.labelFour.Visibility = System.Windows.Visibility.Collapsed;
-                    ThreadStart childref = new ThreadStart(UsineProductionFour);
-                    Thread childThread = new Thread(childref);
-                    childThread.Start();
-                }
+                Task<RessourceProducer> newProducer = RecupProducer(4);
+                producer4 = newProducer.Result;
             }
-        }
+            ProducersViewModel popUp = ProducersViewModel.GetProducersViewModelMultition(producer4);
+            popUp.view.Visibility = System.Windows.Visibility.Visible;
+    }
 
         private void UsineThreeButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (producer3 == null)
             {
-                if (GameViewModel.Instance.GoldCounter < 30)
-                {
-                    int rest = 30 - GameViewModel.Instance.GoldCounter;
-                    view.UsineThreeButton.Content = "Reste : " + rest.ToString();
-                }
-                else
-                {
-                    GameViewModel.Instance.GoldCounter = GameViewModel.Instance.GoldCounter -30;
-                    view.UsineThreeButton.IsEnabled = false;
-                    view.labelThree.Content = "Activé : 50g/10s";
-                    view.labelThree.Visibility = System.Windows.Visibility.Collapsed;
-                    ThreadStart childref = new ThreadStart(UsineProductionThree);
-                    Thread childThread = new Thread(childref);
-                    childThread.Start();
-                }
+                Task<RessourceProducer> newProducer = RecupProducer(3);
+                producer3 = newProducer.Result;
             }
-        }
+            ProducersViewModel popUp = ProducersViewModel.GetProducersViewModelMultition(producer3);
+            popUp.view.Visibility = System.Windows.Visibility.Visible;
+    }
 
         private void UsineTwoButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (producer2 == null)
             {
-                if (GameViewModel.Instance.GoldCounter < 20)
-                {
-                    int rest = 20 - GameViewModel.Instance.GoldCounter;
-                    view.UsineTwoButton.Content = "Reste : " + rest.ToString();
-                }
-                else
-                {
-                    GameViewModel.Instance.GoldCounter = GameViewModel.Instance.GoldCounter - 20;
-                    view.UsineTwoButton.IsEnabled = false;
-                    view.labelTwo.Content = "Activé : 20g/5s";
-                    view.labelTwo.Visibility = System.Windows.Visibility.Collapsed;
-                    ThreadStart childref = new ThreadStart(UsineProductionTwo);
-                    Thread childThread = new Thread(childref);
-                    childThread.Start();
-                }
+                Task<RessourceProducer> newProducer = RecupProducer(2);
+                producer2 = newProducer.Result;
             }
+            ProducersViewModel popUp = ProducersViewModel.GetProducersViewModelMultition(producer2);
+            popUp.view.Visibility = System.Windows.Visibility.Visible;
         }
 
         private void UsineOneButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            if (producer == null)
             {
-                if (GameViewModel.Instance.GoldCounter < 10)
-                {
-                    int rest = 10 - GameViewModel.Instance.GoldCounter;
-                    view.UsineOneButton.Content = "Reste : " + rest.ToString();
-                }
-                else
-                {
-                    GameViewModel.Instance.GoldCounter = GameViewModel.Instance.GoldCounter - 10;
-                    view.UsineOneButton.IsEnabled = false;
-                    view.labelOne.Content = "Activé : 10g/2s";
-                    view.labelOne.Visibility = System.Windows.Visibility.Collapsed;
-                    ThreadStart childref = new ThreadStart(UsineProductionOne);
-                    Thread childThread = new Thread(childref);
-                    childThread.Start();
-                }
+                Task<RessourceProducer> newProducer = RecupProducer(1);
+                producer = newProducer.Result;
             }
+
+            ProducersViewModel popUp = ProducersViewModel.GetProducersViewModelMultition(producer);
+            popUp.view.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private async Task<RessourceProducer> RecupProducer(int idToRecup)
+        {
+            RessourceProducer producerToReturn = await mySQLManager.Get(idToRecup);
+            return producerToReturn;
         }
         private void UsineProductionOne()
         {
-            GameViewModel.Instance.UsineProduction(2000,10);
+            //GameViewModel.Instance.UsineProduction(2000,10);
         }
 
         private void UsineProductionTwo()
         {
-            GameViewModel.Instance.UsineProduction(5000, 50);
+            //GameViewModel.Instance.UsineProduction(5000, 50);
         }
 
         private void UsineProductionThree()
         {
-            GameViewModel.Instance.UsineProduction(10000, 100);
+            //GameViewModel.Instance.UsineProduction(10000, 100);
         }
 
         private void UsineProductionFour()
         {
-            GameViewModel.Instance.UsineProduction(60000, 1000);
+            //GameViewModel.Instance.UsineProduction(60000, 1000);
         }
 
         protected void RaisePropertyChanged(string name)

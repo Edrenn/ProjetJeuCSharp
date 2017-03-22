@@ -1,4 +1,6 @@
-﻿using Clickers.Views;
+﻿using Clickers.DataBaseManager;
+using Clickers.Models;
+using Clickers.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;

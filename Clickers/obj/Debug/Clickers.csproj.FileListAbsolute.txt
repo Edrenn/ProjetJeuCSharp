@@ -26,7 +26,6 @@ D:\Workspaces\Clickers\Clickers\bin\Debug\Newtonsoft.Json.dll
 D:\Workspaces\Clickers\Clickers\bin\Debug\EntityFramework.xml
 D:\Workspaces\Clickers\Clickers\bin\Debug\EntityFramework.SqlServer.xml
 D:\Workspaces\Clickers\Clickers\bin\Debug\Newtonsoft.Json.xml
-D:\Workspaces\Clickers\Clickers\obj\Debug\Clickers.csprojResolveAssemblyReference.cache
 D:\Workspaces\Clickers\Clickers\obj\Debug\MainWindow.g.cs
 D:\Workspaces\Clickers\Clickers\obj\Debug\App.g.cs
 D:\Workspaces\Clickers\Clickers\obj\Debug\Clickers_MarkupCompile.cache
@@ -35,8 +34,6 @@ D:\Workspaces\Clickers\Clickers\obj\Debug\MainWindow.baml
 D:\Workspaces\Clickers\Clickers\obj\Debug\Clickers.g.resources
 D:\Workspaces\Clickers\Clickers\obj\Debug\Clickers.Properties.Resources.resources
 D:\Workspaces\Clickers\Clickers\obj\Debug\Clickers.csproj.GenerateResource.Cache
-D:\Workspaces\Clickers\Clickers\obj\Debug\Views\BaguetteView.g.cs
-D:\Workspaces\Clickers\Clickers\obj\Debug\Views\BaguetteView.baml
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\MainCastleView.g.cs
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\MainCastleView.baml
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\GoldFieldView.g.cs
@@ -44,3 +41,9 @@ D:\Workspaces\Clickers\Clickers\obj\Debug\Views\GoldFieldView.baml
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\InfoBarUserControl.g.cs
 D:\Workspaces\Clickers\Clickers\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\InfoBarUserControl.baml
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\ArmyProducersView.g.cs
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\ArmyProducersView.baml
+D:\Workspaces\Clickers\Clickers\obj\Debug\Clickers.csprojResolveAssemblyReference.cache
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\RessourcesProducerUserControl.g.cs
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\RessourcesProducerUserControl.baml
+D:\Workspaces\Clickers\Clickers\obj\Debug\App.baml

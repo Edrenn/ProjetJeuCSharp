@@ -1,0 +1,38 @@
+[
+  {
+    "Name": "Petite Mine",
+    "Level": "1",
+    "Price": "10",
+    "ProductSpeed": "2000",
+    "QuantityProduct": "10",
+    "IsActive": "false",
+    "TypeRessource": "Gold"
+  },
+  {
+    "Name": "Grande Mine",
+    "Level": "1",
+    "Price": "20",
+    "ProductSpeed": "5000",
+    "QuantityProduct": "40",
+    "IsActive": "false",
+    "TypeRessource": "Gold"
+  },
+  {
+    "Name": "Mines de la Moria",
+    "Level": "1",
+    "Price": "30",
+    "ProductSpeed": "10000",
+    "QuantityProduct": "100",
+    "IsActive": "false",
+    "TypeRessource": "Gold"
+  },
+  {
+    "Name": "Olivier Mine",
+    "Level": "1",
+    "Price": "40",
+    "ProductSpeed": "60000",
+    "QuantityProduct": "10000",
+    "IsActive": "false",
+    "TypeRessource": "Gold"
+  }
+]

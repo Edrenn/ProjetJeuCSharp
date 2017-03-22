@@ -1,6 +1,5 @@
 ﻿using Clickers.Json;
 using Clickers.Models;
-using Clickers.Models.RepetitingItems;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

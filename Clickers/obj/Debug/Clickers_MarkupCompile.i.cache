@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Workspaces\Clickers\Clickers\App.xaml
-42017524997
+6150754153
 
-261151215690
-20101900611
-MainWindow.xaml;Views\GoldFieldView.xaml;Views\InfoBarUserControl.xaml;Views\MainCastleView.xaml;
+381650962820
+20-689906876
+MainWindow.xaml;Views\SoldiersBuildingsView.xaml;Views\GoldFieldView.xaml;Views\InfoBarUserControl.xaml;Views\MainCastleView.xaml;Views\RessourcesProducerUserControl.xaml;
 
-False
+True
 

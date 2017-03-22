@@ -25,7 +25,5 @@
 
         <Label x:Name="PlayerNameLabel" Content="PlayerName" Grid.Column="1" HorizontalAlignment="Center"/>
 
-        <Label x:Name="TimeLabel" Content="14:19" Grid.Column="2" HorizontalAlignment="Right"/>
-
     </Grid>
 </UserControl>

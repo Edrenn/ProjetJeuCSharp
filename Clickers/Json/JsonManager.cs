@@ -46,5 +46,19 @@ namespace Clickers.Json
 
             return toReturn;
         }
+
+        public T ReadFileToList<T>(String path, String file)
+        {
+
+            T toReturn = default(T);
+            using (StreamReader fileItem = File.OpenText(path + file))
+            using (JsonTextReader reader = new JsonTextReader(fileItem))
+            {
+                JArray jObject = (JArray)JToken.ReadFrom(reader);
+                toReturn = jObject.ToObject<T>();
+            }
+
+            return toReturn;
+        }
     }
 }
