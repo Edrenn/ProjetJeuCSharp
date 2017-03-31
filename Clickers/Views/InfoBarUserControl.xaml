@@ -23,7 +23,8 @@
             <Label x:Name="GoldNumberLabel" Content="{Binding GoldCounter}" Grid.Column="1"/>
         </Grid>
 
-        <Label x:Name="PlayerNameLabel" Content="PlayerName" Grid.Column="1" HorizontalAlignment="Center"/>
+        <Label x:Name="PlayerNameLabel" Content="{Binding CastleName,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Center"/>
 
+        <Button x:Name="AttackAlertButton" Background="Red" Content="!" Grid.Column="2" Width="50" HorizontalAlignment="Right" Visibility="Collapsed"/>
     </Grid>
 </UserControl>

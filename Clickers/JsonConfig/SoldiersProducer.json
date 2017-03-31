@@ -1,14 +1,22 @@
 [
   {
     "Name": "Caserne",
-    "Price": "150",
+    "Price": "10",
     "Level": "1",
     "IsActive": "false",
-    "allUnitsType": [
-      "Pécore",
-      "Chevalier",
-      "Garde d'élite"
-    ]
+    "allUnitsType": {
+        "Name": "P\u00C3\u00A9core",
+        "AttackValue": "5",
+        "Price": "50"
+      }
+
+
+  },
+  {
+    "Name": "Archerie",
+    "Price": "1000",
+    "Level": "1",
+    "IsActive": "false"
 
 
     }

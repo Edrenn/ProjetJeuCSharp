@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clickers.Models.Base;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,13 +8,30 @@ using System.Threading.Tasks;
 
 namespace Clickers.Models
 {
-    public class SoldiersProducer<TEntity> where TEntity : class
+    public class SoldiersProducer : BaseDBEntity
     {
         private string name;
         private int price;
         private int level;
         private bool isActive;
-        private TEntity[] allUnitsType;
+        private Soldier allUnitsType;
+        private string imagePath;
+
+        public SoldiersProducer(string name, int price, int level, bool isActive, Soldier allUnitsType, string imagePath)
+        {
+            this.name = name;
+            this.price = price;
+            this.level = level;
+            this.isActive = isActive;
+            this.allUnitsType = allUnitsType;
+            this.imagePath = imagePath;
+        }
+
+        public string ImagePath
+        {
+            get { return imagePath; }
+            set { imagePath = value; }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged(string name)
         {
@@ -22,22 +40,6 @@ namespace Clickers.Models
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
-
-        public SoldiersProducer(string name, int price, int level, bool isActive, TEntity[] allUnitsType)
-        {
-            this.name = name;
-            this.price = price;
-            this.level = level;
-            this.isActive = isActive;
-            this.allUnitsType = allUnitsType;
-        }
-
-        public SoldiersProducer()
-        {
-
-        }
-             
-
 
         #region Properties
         public string Name
@@ -92,7 +94,7 @@ namespace Clickers.Models
             }
         }
 
-        public TEntity[] AllUnitsType
+        public Soldier AllUnitsType
         {
             get
             {

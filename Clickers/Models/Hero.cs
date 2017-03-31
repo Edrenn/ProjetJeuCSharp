@@ -9,23 +9,6 @@ namespace Clickers.Models
     public class Hero
     {
         string name;
-        int life;
-        int armor;
-        int attackValue;
-        int level;
-        int price;
-        List<Item> inventory;
-
-        public Hero(string name, int life, int armor, int attackValue, int level, List<Item> inventory)
-        {
-            this.Name = name;
-            this.Life = life;
-            this.Armor = armor;
-            this.AttackValue = attackValue;
-            this.Level = level;
-            this.Inventory = inventory;
-        }
-
         public string Name
         {
             get
@@ -39,6 +22,7 @@ namespace Clickers.Models
             }
         }
 
+        int life;
         public int Life
         {
             get
@@ -52,6 +36,7 @@ namespace Clickers.Models
             }
         }
 
+        int armor;
         public int Armor
         {
             get
@@ -65,6 +50,7 @@ namespace Clickers.Models
             }
         }
 
+        int attackValue;
         public int AttackValue
         {
             get
@@ -78,6 +64,7 @@ namespace Clickers.Models
             }
         }
 
+        int level;
         public int Level
         {
             get
@@ -91,6 +78,21 @@ namespace Clickers.Models
             }
         }
 
+        int price;
+        public int Price
+        {
+            get
+            {
+                return price;
+            }
+
+            set
+            {
+                price = value;
+            }
+        }
+
+        List<Item> inventory;
         public List<Item> Inventory
         {
             get
@@ -104,17 +106,28 @@ namespace Clickers.Models
             }
         }
 
-        public int Price
+        private string imagePath;
+        public string ImagePath
         {
-            get
-            {
-                return price;
-            }
+            get { return imagePath; }
+            set { imagePath = value; }
+        }
 
-            set
-            {
-                price = value;
-            }
+        public Hero(string name, int life, int armor, int attackValue, int level, string imagePath)
+        {
+            this.Name = name;
+            this.Life = life;
+            this.Armor = armor;
+            this.AttackValue = attackValue;
+            this.Level = level;
+            this.Inventory = new List<Item>();
+            this.ImagePath = imagePath;
+
+
+
+
+
+
         }
     }
 }

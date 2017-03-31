@@ -17,6 +17,8 @@ namespace Clickers.Models
         private int quantityProduct;
         private int level;
         private bool isActive;
+        private string imagePath;
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged(string name)
         {
@@ -26,20 +28,10 @@ namespace Clickers.Models
             }
         }
 
-        public RessourceProducer()
+        public string ImagePath
         {
-
-        }
-
-        public RessourceProducer(string name, int price, string typeRessource, int productSpeed, int quantityProduct, int level,bool isActive)
-        {
-            this.name = name;
-            this.price = price;
-            this.typeRessource = typeRessource;
-            this.productSpeed = productSpeed;
-            this.quantityProduct = quantityProduct;
-            this.level = level;
-            this.IsActive = isActive;
+            get { return imagePath; }
+            set { imagePath = value; }
         }
 
         public bool IsActive

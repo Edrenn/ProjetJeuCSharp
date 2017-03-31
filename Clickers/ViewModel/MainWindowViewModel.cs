@@ -14,6 +14,7 @@ namespace Clickers.ViewModel
     public class MainWindowViewModel
     {
         MainWindow view;
+        UsernameRegister popUp;
 
         public MainWindowViewModel(MainWindow view)
         {
@@ -34,9 +35,23 @@ namespace Clickers.ViewModel
 
         private void NewGameButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            popUp = new UsernameRegister();
+            popUp.CancelButton.Click += CancelButton_Click;
+            popUp.OkButton.Click += OkButton_Click;
+            popUp.Visibility = Visibility.Visible;
+        }
+
+        private void OkButton_Click(object sender, RoutedEventArgs e)
+        {
             MainCastleView newPage = new MainCastleView();
-            MySQLManager<RessourceProducer> mySQLManager = new MySQLManager<RessourceProducer>();
+            GameViewModel.Instance.CastleName = popUp.UsernameTB.Text;
             Switcher.Switch(newPage);
+            popUp.Close();
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            popUp.Visibility = Visibility.Collapsed;
         }
         #endregion
     }

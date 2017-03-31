@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Clickers</RootNamespace>
     <AssemblyName>Clickers</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -29,6 +29,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -77,6 +78,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -95,21 +98,48 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataBaseManager\EntitiesLink\MySQLSoldiersProducer.cs" />
     <Compile Include="Models\Army.cs" />
-    <Compile Include="Models\ArmyProducer.cs" />
+    <Compile Include="Models\Battle.cs" />
+    <Compile Include="Models\Castle.cs" />
     <Compile Include="Models\Hero.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\RessourceProducer.cs" />
-    <Compile Include="Models\Soldier.cs" />
-    <Compile Include="ViewModel\GoldFieldViewModel.cs" />
+    <Compile Include="Models\Soldiers.cs" />
+    <Compile Include="Models\SoldiersProducer.cs" />
+    <Compile Include="ViewModel\Army\ArmyViewModel.cs" />
+    <Compile Include="ViewModel\Army\BattleViewModel.cs" />
+    <Compile Include="ViewModel\AttackAlertViewModel.cs" />
+    <Compile Include="ViewModel\GoldProducer\GoldFieldViewModel.cs" />
+    <Compile Include="ViewModel\InfoBarViewModel.cs" />
     <Compile Include="ViewModel\MainCastleViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
-    <Compile Include="ViewModel\ProducersViewModel.cs" />
+    <Compile Include="ViewModel\GoldProducer\GoldProducersViewModel.cs" />
+    <Compile Include="ViewModel\SoldierProducer\HeroViewModel.cs" />
+    <Compile Include="ViewModel\SoldierProducer\SoldierProducerViewModel.cs" />
+    <Compile Include="ViewModel\SoldierProducer\SoldiersBuildingsViewModel.cs" />
+    <Compile Include="ViewModel\SoldierProducer\SoldierViewModel.cs" />
     <Compile Include="ViewModel\Switcher.cs" />
-    <Compile Include="Views\ArmyProducersView.xaml.cs">
-      <DependentUpon>ArmyProducersView.xaml</DependentUpon>
+    <Compile Include="ViewModel\TaverneViewModel.cs" />
+    <Compile Include="Views\ArmyView\ArmyView.xaml.cs">
+      <DependentUpon>ArmyView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\GoldFieldView.xaml.cs">
+    <Compile Include="Views\ArmyView\UnitView.xaml.cs">
+      <DependentUpon>UnitView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AttackAlertView\AttackAlertCounterView.xaml.cs">
+      <DependentUpon>AttackAlertCounterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BattleReport.xaml.cs">
+      <DependentUpon>BattleReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SoldierView\SoldierProducerView.xaml.cs">
+      <DependentUpon>SoldierProducerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SoldierView\SoldiersBuildingsView.xaml.cs">
+      <DependentUpon>SoldiersBuildingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GoldView\GoldFieldView.xaml.cs">
       <DependentUpon>GoldFieldView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\InfoBarUserControl.xaml.cs">
@@ -118,8 +148,20 @@
     <Compile Include="Views\MainCastleView.xaml.cs">
       <DependentUpon>MainCastleView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\RessourcesProducerUserControl.xaml.cs">
-      <DependentUpon>RessourcesProducerUserControl.xaml</DependentUpon>
+    <Compile Include="Views\GoldView\GoldProducerUserControl.xaml.cs">
+      <DependentUpon>GoldProducerUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SoldierView\SoldierView.xaml.cs">
+      <DependentUpon>SoldierView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TaverneView\HeroView.xaml.cs">
+      <DependentUpon>HeroView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TaverneView\TaverneView.xaml.cs">
+      <DependentUpon>TaverneView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UsernameRegister.xaml.cs">
+      <DependentUpon>UsernameRegister.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -137,11 +179,31 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\ArmyProducersView.xaml">
+    <Page Include="Views\ArmyView\ArmyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\GoldFieldView.xaml">
+    <Page Include="Views\ArmyView\UnitView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AttackAlertView\AttackAlertCounterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BattleReport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SoldierView\SoldierProducerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SoldierView\SoldiersBuildingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GoldView\GoldFieldView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -153,7 +215,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\RessourcesProducerUserControl.xaml">
+    <Page Include="Views\GoldView\GoldProducerUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SoldierView\SoldierView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TaverneView\HeroView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TaverneView\TaverneView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UsernameRegister.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -206,7 +284,41 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\Image\images.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Image\mayoness.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Image\ours.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Image\chevalier.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Image\archer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Image\cavalier.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Image\ProvencalLeGaulois.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Image\RobinetDesBosquets.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Image\CavalierDeWaifrer.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

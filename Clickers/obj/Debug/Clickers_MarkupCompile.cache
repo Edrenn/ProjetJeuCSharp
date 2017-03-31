@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Workspaces\Clickers\Clickers\App.xaml
-6-2013833582
+15-1807611071
 
-31-1660143103
-20-689906876
-MainWindow.xaml;Views\ArmyProducersView.xaml;Views\GoldFieldView.xaml;Views\InfoBarUserControl.xaml;Views\MainCastleView.xaml;Views\RessourcesProducerUserControl.xaml;
+52553827307
+22-2046587918
+MainWindow.xaml;Views\ArmyView\ArmyView.xaml;Views\ArmyView\UnitView.xaml;Views\AttackAlertView\AttackAlertCounterView.xaml;Views\BattleReport.xaml;Views\SoldierView\SoldierProducerView.xaml;Views\SoldierView\SoldiersBuildingsView.xaml;Views\GoldView\GoldFieldView.xaml;Views\InfoBarUserControl.xaml;Views\MainCastleView.xaml;Views\GoldView\GoldProducerUserControl.xaml;Views\SoldierView\SoldierView.xaml;Views\TaverneView\HeroView.xaml;Views\TaverneView\TaverneView.xaml;Views\UsernameRegister.xaml;
 
 False
 

@@ -1,4 +1,5 @@
 ﻿using Clickers.DataBaseManager;
+using Clickers.Models;
 using Clickers.Views;
 using System;
 using System.Collections.Generic;
@@ -7,30 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Threading;
 
 namespace Clickers
 {
     public class GameViewModel : INotifyPropertyChanged
     {
-        private int goldCounter = 0;
-        public event PropertyChangedEventHandler PropertyChanged;
-        private static GameViewModel instance;
-
-        private GameViewModel() { }
-
-        public static GameViewModel Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new GameViewModel();
-                }
-                return instance;
-            }
-        }
-
         #region Properties
+        private int goldCounter = 0;
         public int GoldCounter
         {
             get
@@ -43,7 +29,71 @@ namespace Clickers
                 RaisePropertyChanged("GoldCounter");
             }
         }
+
+        private static GameViewModel instance;
+        public static GameViewModel Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new GameViewModel();
+                }
+                return instance;
+            }
+        }
+
+        private string castleName;
+        public string CastleName
+        {
+            get
+            {
+                return castleName;
+            }
+
+            set
+            {
+                castleName = value;
+                RaisePropertyChanged("GoldCounter");
+            }
+        }
+
+        private Castle mainCastle;
+        public Castle MainCastle
+        {
+            get
+            {
+                return mainCastle;
+            }
+
+            set
+            {
+                mainCastle = value;
+            }
+        }
+
+        private Castle ennemyCastle;
+        public Castle EnnemyCastle
+        {
+            get
+            {
+                return ennemyCastle;
+            }
+
+            set
+            {
+                ennemyCastle = value;
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
         #endregion
+
+        private GameViewModel()
+        {
+            MainCastle = new Castle(castleName);
+            ennemyCastle = new Castle("Méchant Chato");
+        }
 
         public void UsineProduction(int delay, int quantityProduct,CancellationTokenSource CTS)
         {
@@ -62,6 +112,7 @@ namespace Clickers
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
             }
         }
+
 
     }
 }

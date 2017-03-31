@@ -1,4 +1,5 @@
-﻿using Clickers.Json;
+﻿using Clickers.DataBaseManager.EntitiesLink;
+using Clickers.Json;
 using Clickers.Models;
 using Clickers.Models.Generators;
 using System;
@@ -14,8 +15,10 @@ namespace Clickers.DataBaseManager
     class MySQLFullDB : DbContext
     {
         public DbSet<RessourceProducer> RessourceProducerTable { get; set; }
+        public DbSet<SoldiersProducer> SoldiersProducerTable { get; set; }
+        public DbSet<Soldier> SoldiersTable { get; set; }
         public MySQLFullDB()
-            :base(JsonManager.Instance.ReadFile<ConnectionString>(@"D:\Workspaces\Clickers\Clickers\JsonConfig\",@"MysqlConfig.json").ToString())
+            : base(JsonManager.Instance.ReadFile<ConnectionString>(@"D:\Workspaces\Clickers\Clickers\JsonConfig\", @"MysqlConfig.json").ToString())
         {
             InitLocalMySQL();
         }
@@ -25,14 +28,24 @@ namespace Clickers.DataBaseManager
             if (this.Database.CreateIfNotExists())
             {
 
-               List<RessourceProducer> allProducer = JsonManager.Instance.ReadFileToList<List<RessourceProducer>>("D:\\Workspaces\\Clickers\\Clickers\\JsonConfig\\", "GoldProducer.Json");
-                foreach (RessourceProducer item in allProducer)
+                List<RessourceProducer> allGoldProducer = JsonManager.Instance.GetAllGoldProducersFromJSon();
+                foreach (RessourceProducer item in allGoldProducer)
                 {
                     RessourceProducerTable.Add(item);
                 }
-            }
+                List<Soldier> allSoldier = JsonManager.Instance.GetAllSoldiersFromJSon();
+                foreach (Soldier item in allSoldier)
+                {
+                    SoldiersTable.Add(item);
+                }
+                List<SoldiersProducer> allSoldierProducer = JsonManager.Instance.GetAllSoldierProducersFromJSon();
+                foreach (SoldiersProducer item in allSoldierProducer)
+                {
+                    SoldiersProducerTable.Add(item);
+                }
 
                 this.SaveChangesAsync();
+            }
         }
     }
 }

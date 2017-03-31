@@ -8,8 +8,30 @@ namespace Clickers.Models
 {
     public class Army
     {
-        int attackValue;
-       // int soldierNumber;
+        private Hero hero;
+        public Hero Hero
+        {
+            get { return hero; }
+            set { hero = value; }
+        }
 
+        List<Soldier> allSoldiers;
+        public List<Soldier> AllSoldiers
+        {
+            get
+            {
+                return allSoldiers;
+            }
+
+            set
+            {
+                allSoldiers = value;
+            }
+        }
+
+        public Army()
+        {
+            allSoldiers = new List<Soldier>();
+        }
     }
 }

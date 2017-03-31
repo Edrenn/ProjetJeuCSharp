@@ -21,6 +21,12 @@ namespace Clickers.DataBaseManager
         }
         public DbSet<TEntity> DbSetT { get; set; }
 
+        //public async Task<List<SoldiersProducer>> test()
+        //{
+        //    using(var context = new SoldiersProducer())
+        //    List<SoldiersProducer> test = (from s in base.Database.SqlQuery
+        //    return test;
+        //}
         public async Task<TEntity> Insert(TEntity item)
         {
             this.DbSetT.Add(item);

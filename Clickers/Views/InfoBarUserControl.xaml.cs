@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clickers.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,19 @@ namespace Clickers.Views
     /// </summary>
     public partial class InfoBarUserControl
     {
+        private InfoBarViewModel controller;
+ 
+        public InfoBarViewModel Controller
+        {
+            get { return controller; }
+            set { controller = value; }
+        }
+
         public InfoBarUserControl()
         {
             InitializeComponent();
             this.DataContext = GameViewModel.Instance;
+            this.controller = new InfoBarViewModel(this);
         }
     }
 }

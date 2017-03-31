@@ -1,0 +1,17 @@
+[
+  {
+    "Name" : "P\u00C3\u00A9core",
+    "AttackValue" : "5",
+    "Price": "50"
+  },
+  {
+    "Name" : "Chevalier",
+    "AttackValue" : "20",
+    "Price" : "200"
+  },
+  {
+    "Name": "Garde d'\u00C3\u00A9lite",
+    "AttackValue": "50",
+    "Price" : "500"
+  }
+]
