@@ -1,6 +1,7 @@
 ﻿using Clickers.Models;
 using Clickers.Views;
 using Clickers.Views.ArmyView;
+using Clickers.Views.TaverneView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,9 @@ namespace Clickers.ViewModel.Army
             NewSoldierViewCreation("Chevalier", "../../Assets/Image/chevalier.jpg");
             NewSoldierViewCreation("Archer", "../../Assets/Image/archer.jpg");
             NewSoldierViewCreation("Cavalier", "../../Assets/Image/cavalier.jpg");
+            if (GameViewModel.Instance.MainCastle.Army.Hero != null) {
+                NewHeroView();
+            }
             EventGenerator();
         }
 
@@ -49,6 +53,15 @@ namespace Clickers.ViewModel.Army
             }
             newSoldier.NumberInArmy.Text = numberChevalier.ToString();
             view.Units.Children.Add(newSoldier);
+        }
+
+        private void NewHeroView()
+        {
+            HeroView newHeroView = new HeroView();
+            newHeroView.DataContext = GameViewModel.Instance.MainCastle.Army.Hero;
+            newHeroView.SelectHeroButton.Visibility = System.Windows.Visibility.Collapsed;
+            view.Units.Children.Add(newHeroView);
+
         }
     }
 }

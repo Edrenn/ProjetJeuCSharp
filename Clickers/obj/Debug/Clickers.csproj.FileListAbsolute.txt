@@ -58,10 +58,14 @@ D:\Workspaces\Clickers\Clickers\obj\Debug\Views\ArmyView\ArmyView.baml
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\ArmyView\UnitView.baml
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\BattleReport.g.cs
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\BattleReport.baml
-D:\Workspaces\Clickers\Clickers\obj\Debug\Clickers.csprojResolveAssemblyReference.cache
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\AttackAlertView\AttackAlertCounterView.g.cs
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\AttackAlertView\AttackAlertCounterView.baml
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\TaverneView\TaverneView.g.cs
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\TaverneView\TaverneView.baml
-D:\Workspaces\Clickers\Clickers\obj\Debug\Views\TaverneView\HeroView.g.cs
-D:\Workspaces\Clickers\Clickers\obj\Debug\Views\TaverneView\HeroView.baml
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\HeroFightVIew\HeroFightView.g.cs
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\HeroFightVIew\SkillView.g.cs
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\HeroFightVIew\HeroFightView.baml
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\HeroFightVIew\SkillView.baml
+D:\Workspaces\Clickers\Clickers\obj\Debug\Clickers.csprojResolveAssemblyReference.cache
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\SoldierView\HeroView.g.cs
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\SoldierView\HeroView.baml

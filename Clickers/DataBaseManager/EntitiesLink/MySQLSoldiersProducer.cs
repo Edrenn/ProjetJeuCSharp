@@ -15,7 +15,7 @@ namespace Clickers.DataBaseManager.EntitiesLink
             bool isDetached = this.Entry(soldiersProducer).State == EntityState.Detached;
             if (isDetached)
                 this.DbSetT.Attach(soldiersProducer);
-            Entry(soldiersProducer).Reference(x => x.AllUnitsType).Load();
+            Entry(soldiersProducer).Reference(x => x.SoldierType).Load();
         }
     }
 }

@@ -14,36 +14,36 @@ namespace Clickers.DataBaseManager
     [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     class MySQLFullDB : DbContext
     {
-        public DbSet<RessourceProducer> RessourceProducerTable { get; set; }
-        public DbSet<SoldiersProducer> SoldiersProducerTable { get; set; }
-        public DbSet<Soldier> SoldiersTable { get; set; }
+        public DbSet<RessourceProducer> DbSetRessourceProducer { get; set; }
+        public DbSet<SoldiersProducer> DbSetSoldiersProducer { get; set; }
+        public DbSet<Soldier> DbSetSoldiers { get; set; }
+        public DbSet<Hero> DbSetHeros { get; set; }
+
         public MySQLFullDB()
             : base(JsonManager.Instance.ReadFile<ConnectionString>(@"D:\Workspaces\Clickers\Clickers\JsonConfig\", @"MysqlConfig.json").ToString())
         {
             InitLocalMySQL();
         }
 
-        private void InitLocalMySQL()
+        private async void InitLocalMySQL()
         {
             if (this.Database.CreateIfNotExists())
             {
-
                 List<RessourceProducer> allGoldProducer = JsonManager.Instance.GetAllGoldProducersFromJSon();
                 foreach (RessourceProducer item in allGoldProducer)
                 {
-                    RessourceProducerTable.Add(item);
-                }
-                List<Soldier> allSoldier = JsonManager.Instance.GetAllSoldiersFromJSon();
-                foreach (Soldier item in allSoldier)
-                {
-                    SoldiersTable.Add(item);
+                    DbSetRessourceProducer.Add(item);
                 }
                 List<SoldiersProducer> allSoldierProducer = JsonManager.Instance.GetAllSoldierProducersFromJSon();
                 foreach (SoldiersProducer item in allSoldierProducer)
                 {
-                    SoldiersProducerTable.Add(item);
+                    DbSetSoldiersProducer.Add(item);
                 }
-
+                List<Hero> allHeros = JsonManager.Instance.GetAllHerosFromJSon();
+                foreach (Hero hero in allHeros)
+                {
+                    DbSetHeros.Add(hero);
+                }
                 this.SaveChangesAsync();
             }
         }

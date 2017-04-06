@@ -72,6 +72,23 @@ namespace Clickers.DataBaseManager
             return await this.DbSetT.FindAsync(id) as TEntity;
         }
 
+        public async Task<List<TEntity>> GetAll()
+        {
+            bool isOk = true;
+            int itemNumber = 1;
+            List<TEntity> itemList = new List<TEntity>();
+            TEntity itemTank;
+            while (isOk)
+            {
+                itemTank = await this.DbSetT.FindAsync(itemNumber) as TEntity;
+                if (itemTank == null)
+                {
+                    isOk = false;
+                }
+            }
+            return itemList;
+        }
+
         public async Task<IEnumerable<TEntity>> Get()
         {
             DbSet<TEntity> temp = default(DbSet<TEntity>);

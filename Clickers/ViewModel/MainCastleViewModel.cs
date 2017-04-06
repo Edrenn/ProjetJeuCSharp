@@ -39,7 +39,15 @@ namespace Clickers.ViewModel
 
         private void ToBattleButton_Click(object sender, RoutedEventArgs e)
         {
-            BattleViewModel newBattleVM = new BattleViewModel();
+            GameViewModel.Instance.EnnemyCastle.Army.GenerateHero();
+            if (GameViewModel.Instance.MainCastle.Army.Hero != null && GameViewModel.Instance.EnnemyCastle.Army.Hero != null)
+            {
+                HeroFightViewModel newDuel = new HeroFightViewModel(GameViewModel.Instance.MainCastle.Army.Hero, GameViewModel.Instance.EnnemyCastle.Army.Hero);
+            }
+            else
+            {
+                Battle newBattle = new Battle(GameViewModel.Instance.MainCastle.Army, GameViewModel.Instance.EnnemyCastle.Army, GameViewModel.Instance.EnnemyCastle);
+            }
         }
 
         private void ArmyButton_Click(object sender, RoutedEventArgs e)

@@ -1,0 +1,29 @@
+[
+  {
+    "Name": "Provencal Le Gaulois",
+    "Life": "50",
+    "Armor": "40",
+    "AttackValue": "20",
+    "Level": "1",
+    "Type": "Chevalier",
+    "ImagePath": "../../Assets/Image/ProvencalLeGaulois.jpg"
+  },
+  {
+    "Name": "Robinet Des Bosquets",
+    "Life": "50",
+    "Armor": "10",
+    "AttackValue": "40",
+    "Level": "1",
+    "Type": "Archer",
+    "ImagePath": "../../Assets/Image/RobinetDesBosquets.jpg"
+  },
+    {
+    "Name": "Cavalier De Waifrer",
+    "Life": "50",
+    "Armor": "30",
+    "AttackValue": "30",
+    "Level": "1",
+    "Type": "Cavalier",
+    "ImagePath": "../../Assets/Image/CavalierDeWaifrer.jpg"
+  }
+]

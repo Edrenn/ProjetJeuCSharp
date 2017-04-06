@@ -15,15 +15,6 @@ namespace Clickers.Models
         int price;
         private string imagePath;
 
-        public Soldier(string name, int attackValue, int price, string imagePath)
-        {
-            this.name = name;
-            this.attackValue = attackValue;
-            this.price = price;
-            this.imagePath = imagePath;
-            this.health = 10;
-        }
-
         public string ImagePath
         {
             get { return imagePath; }
@@ -80,6 +71,15 @@ namespace Clickers.Models
             {
                 health = value;
             }
+        }
+
+        public void InitializeSoldier(Soldier soldier)
+        {
+            this.ImagePath = soldier.ImagePath;
+            this.Name = soldier.Name;
+            this.AttackValue = soldier.AttackValue;
+            this.Price = soldier.Price;
+            this.Health = soldier.Health;
         }
     }
 }

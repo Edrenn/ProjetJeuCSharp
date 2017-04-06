@@ -53,15 +53,16 @@ namespace Clickers.ViewModel.SoldierProducer
 
         private void SoldierViewBuyButtonClick(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (GameViewModel.Instance.GoldCounter >= SoldiersProducer.AllUnitsType.Price)
+            if (GameViewModel.Instance.GoldCounter >= SoldiersProducer.SoldierType.Price)
             {
-                Soldier newSoldier = new Soldier(SoldiersProducer.AllUnitsType.Name, SoldiersProducer.AllUnitsType.AttackValue, SoldiersProducer.AllUnitsType.Price, SoldiersProducer.AllUnitsType.ImagePath);
+                Soldier newSoldier = new Soldier();
+                newSoldier.InitializeSoldier(SoldiersProducer.SoldierType);
                 GameViewModel.Instance.MainCastle.Army.AllSoldiers.Add(newSoldier);
-                GameViewModel.Instance.GoldCounter -= SoldiersProducer.AllUnitsType.Price;
+                GameViewModel.Instance.GoldCounter -= SoldiersProducer.SoldierType.Price;
             }
             else
             {
-                System.Windows.MessageBox.Show("Il vous manque " + (SoldiersProducer.AllUnitsType.Price - GameViewModel.Instance.GoldCounter) + " d'Or");
+                System.Windows.MessageBox.Show("Il vous manque " + (SoldiersProducer.SoldierType.Price - GameViewModel.Instance.GoldCounter) + " d'Or");
             }
         }
 
@@ -105,7 +106,7 @@ namespace Clickers.ViewModel.SoldierProducer
                 SoldiersProducer.Price *= 2;
                 SoldiersProducer.IsActive = true;
                 View.MainGrid.Background = Brushes.Green;
-                View.SoldierView.DataContext = SoldiersProducer.AllUnitsType;
+                View.SoldierView.DataContext = SoldiersProducer.SoldierType;
                 View.SoldierView.Visibility = System.Windows.Visibility.Visible;
                 View.BuyButton.Visibility = System.Windows.Visibility.Collapsed;
                 View.UpgradeButton.Visibility = System.Windows.Visibility.Visible;

@@ -15,8 +15,9 @@ namespace Clickers.ViewModel
 {
     public class SoldiersBuildingsViewModel
     {
-        MySQLManager<SoldiersProducer> mySQLManager = new MySQLManager<SoldiersProducer>();
+        MySQLManager<SoldiersProducer> mySoldiersProducerSQLManager = new MySQLManager<SoldiersProducer>();
         MySQLManager<Soldier> mySQLSoldierManager = new MySQLManager<Soldier>();
+        SoldierProducerMySQLManager newSoldierProducerMySQLManager = new SoldierProducerMySQLManager();
         private SoldiersProducer producer1 = null;
         public SoldiersProducer Producer1
         {
@@ -53,7 +54,7 @@ namespace Clickers.ViewModel
 
         private async Task<SoldiersProducer> RecupProducer(int idToRecup)
         {
-            SoldiersProducer producerToRdeturn = await mySQLManager.Get(idToRecup);
+            SoldiersProducer producerToRdeturn = await mySoldiersProducerSQLManager.Get(idToRecup);
             return producerToRdeturn;
         }
 
@@ -82,13 +83,12 @@ namespace Clickers.ViewModel
         {
             if (Producer1 == null)
             {
-                //Task<SoldiersProducer> newProducer = RecupProducer(1);
-                //Producer1 = newProducer.Result;
-                //Task<Soldier> test = RecupSoldiers(3);
-                Producer1 = new SoldiersProducer("Caserne", 10,1,false,new Soldier("Chevalier",5,50,"../../Assets/Image/chevalier.jpg"),"");
+                Task<SoldiersProducer> newProducer = RecupProducer(1);
+                Producer1 = newProducer.Result;
+                Producer1 = newSoldierProducerMySQLManager.GetSoldiersProducer(Producer1);
             }
             SoldierProducerViewModel popUp = SoldierProducerViewModel.GetProducersViewModelMultition(Producer1);
-            popUp.View.SoldierView.DataContext = Producer1.AllUnitsType;
+            popUp.View.SoldierView.DataContext = Producer1.SoldierType;
             popUp.View.Visibility = System.Windows.Visibility.Visible;
         }
 
@@ -96,12 +96,12 @@ namespace Clickers.ViewModel
         {
             if (Producer2 == null)
             {
-                //Task<SoldiersProducer> newProducer = RecupProducer(2);
-                //Producer2 = newProducer.Result;
-                Producer2 = new SoldiersProducer("Archerie", 10, 1, false, new Soldier("Archer", 5, 50, "../../Assets/Image/archer.jpg"), "");
+                Task<SoldiersProducer> newProducer = RecupProducer(2);
+                Producer2 = newProducer.Result;
+                Producer2 = newSoldierProducerMySQLManager.GetSoldiersProducer(Producer2);
             }
             SoldierProducerViewModel popUp = SoldierProducerViewModel.GetProducersViewModelMultition(Producer2);
-            popUp.View.SoldierView.DataContext = Producer2.AllUnitsType;
+            popUp.View.SoldierView.DataContext = Producer2.SoldierType;
             popUp.View.Visibility = System.Windows.Visibility.Visible;
         }
 
@@ -109,9 +109,9 @@ namespace Clickers.ViewModel
         {
             if (Producer3 == null)
             {
-                //Task<SoldiersProducer> newProducer = RecupProducer(3);
-                //Producer3 = newProducer.Result;
-                Producer3 = new SoldiersProducer("Écurie", 10, 1, false, new Soldier("Cavalier", 5, 50, "../../Assets/Image/cavalier.jpg"), "");
+                Task<SoldiersProducer> newProducer = RecupProducer(3);
+                Producer3 = newProducer.Result;
+                Producer3 = newSoldierProducerMySQLManager.GetSoldiersProducer(Producer3);
             }
             SoldierProducerViewModel popUp = SoldierProducerViewModel.GetProducersViewModelMultition(Producer3);
             if (Producer3.IsActive == true)
@@ -119,7 +119,7 @@ namespace Clickers.ViewModel
                 popUp.View.Background = Brushes.Green;
                 popUp.View.SoldierView.Visibility = System.Windows.Visibility.Visible;
             }
-            popUp.View.SoldierView.DataContext = Producer3.AllUnitsType;
+            popUp.View.SoldierView.DataContext = Producer3.SoldierType;
             popUp.View.Visibility = System.Windows.Visibility.Visible;
         }
     }

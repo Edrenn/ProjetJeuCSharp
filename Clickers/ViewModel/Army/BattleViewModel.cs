@@ -1,4 +1,5 @@
-﻿using Clickers.Models;
+﻿using Clickers.DataBaseManager;
+using Clickers.Models;
 using Clickers.Views;
 using System;
 using System.Collections.Generic;
@@ -14,19 +15,21 @@ namespace Clickers.ViewModel.Army
         Battle newBattle;
         public BattleViewModel()
         {
-            newBattle = new Battle(GameViewModel.Instance.MainCastle.Army, GameViewModel.Instance.MainCastle.Army.AllSoldiers, GameViewModel.Instance.EnnemyCastle);
-            view = new BattleReport();
-            if (newBattle.AttackWin == true)
-            {
-                view.WinOrLoseLabel.Content = "VICTOIRE";
-            }
-            else
-                view.WinOrLoseLabel.Content = "DÉFAITE..";
+            //newBattle = new Battle(GameViewModel.Instance.MainCastle.Army, GameViewModel.Instance.EnnemyCastle.Army, GameViewModel.Instance.EnnemyCastle);
+            //view = new BattleReport();
+            //if (newBattle.AttackWin == true)
+            //{
+            //    view.WinOrLoseLabel.Content = "VICTOIRE";
+            //}
+            //else
+            //    view.WinOrLoseLabel.Content = "DÉFAITE..";
 
-            view.AllyUnitslose.Text = "Unités attaquantes perdue : " + newBattle.AttackDeaths.Count;
-            view.EnnemyUnitslose.Text = "Unités défendantes perdue : " + newBattle.DefenseDeaths.Count;
-            Switcher.Switch(view);
-            EventGenerator();
+            //view.AllyUnitslose.Text = "Unités attaquantes perdue : " + newBattle.AttackDeaths.Count;
+            //view.AllyUnitsRest.Text = "Unités attaquantes restantes : " + (GameViewModel.Instance.MainCastle.Army.AllSoldiers.Count - newBattle.AttackDeaths.Count);
+            //view.EnnemyUnitslose.Text = "Unités défendantes perdue : " + newBattle.DefenseDeaths.Count;
+            //view.EnnemyUnitsRest.Text = "Unités défendantes restantes : " + (GameViewModel.Instance.EnnemyCastle.Army.AllSoldiers.Count - newBattle.DefenseDeaths.Count);
+            //Switcher.Switch(view);
+            //EventGenerator();
         }
 
         private void EventGenerator()
@@ -41,28 +44,25 @@ namespace Clickers.ViewModel.Army
             Switcher.Switch(castleView);
         }
         
+        /// <summary>
+        /// Refresh the Army
+        /// </summary>
         private void WashingBodies()
         {
             foreach (Soldier soldier in newBattle.AttackDeaths)
             {
-                if (newBattle.AttackArmy.Contains(soldier))
+                if (newBattle.AttackSoldiers.Contains(soldier))
                 {
-                    newBattle.AttackArmy.Remove(soldier);
+                    newBattle.AttackSoldiers.Remove(soldier);
                 }
             }
             GameViewModel.Instance.MainCastle.Army.AllSoldiers.Clear();
-            foreach (Soldier soldier in newBattle.AttackArmy)
+            foreach (Soldier soldier in newBattle.AttackSoldiers)
             {
-                Soldier newSoldier = new Soldier(soldier.Name, soldier.AttackValue, soldier.Price, soldier.ImagePath);
+                Soldier newSoldier = new Soldier();
+                newSoldier.InitializeSoldier(soldier);
                 GameViewModel.Instance.MainCastle.Army.AllSoldiers.Add(newSoldier);
             }
-            //foreach (Soldier soldier in newBattle.DefenseDeaths)
-            //{
-            //    if (newBattle.DefenseArmy.Contains(soldier))
-            //    {
-            //        newBattle.DefenseArmy.Remove(soldier);
-            //    }
-            //}
         }
     }
 }

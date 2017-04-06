@@ -4,20 +4,36 @@
     "Price": "10",
     "Level": "1",
     "IsActive": "false",
-    "allUnitsType": {
-        "Name": "P\u00C3\u00A9core",
-        "AttackValue": "5",
-        "Price": "50"
+    "SoldierType": {
+      "Name": "Chevalier",
+      "AttackValue": "5",
+      "Health": "10",
+      "Price": "50",
+      "ImagePath" :  "../../Assets/Image/chevalier.jpg"
       }
-
-
-  },
-  {
-    "Name": "Archerie",
-    "Price": "1000",
+  },  {
+    "Name": "Archer",
+    "Price": "10",
     "Level": "1",
-    "IsActive": "false"
-
-
-    }
+    "IsActive": "false",
+    "SoldierType": {
+      "Name": "Archer",
+      "AttackValue": "5",
+      "Health": "10",
+      "Price": "50",
+      "ImagePath" :  "../../Assets/Image/archer.jpg"
+      }
+  },  {
+    "Name": "Cavalier",
+    "Price": "10",
+    "Level": "1",
+    "IsActive": "false",
+    "SoldierType": {
+      "Name": "Cavalier",
+      "AttackValue": "5",
+      "Health": "10",
+      "Price": "50",
+      "ImagePath" :  "../../Assets/Image/cavalier.jpg"
+      }
+  }
 ]

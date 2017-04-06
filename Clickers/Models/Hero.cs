@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clickers.Models.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Clickers.Models
 {
-    public class Hero
+    public class Hero : BaseDBEntity
     {
         string name;
         public string Name
@@ -92,7 +93,14 @@ namespace Clickers.Models
             }
         }
 
-        List<Item> inventory;
+        private string type;
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
+
+        private List<Item> inventory;
         public List<Item> Inventory
         {
             get
@@ -106,6 +114,14 @@ namespace Clickers.Models
             }
         }
 
+        private List<Skill> skills;
+        public List<Skill> Skills
+        {
+            get { return skills; }
+            set { skills = value; }
+        }
+
+
         private string imagePath;
         public string ImagePath
         {
@@ -113,7 +129,9 @@ namespace Clickers.Models
             set { imagePath = value; }
         }
 
-        public Hero(string name, int life, int armor, int attackValue, int level, string imagePath)
+        public Hero() { }
+
+        public Hero(string name, int life, int armor, int attackValue, int level, string type, string imagePath)
         {
             this.Name = name;
             this.Life = life;
@@ -121,13 +139,8 @@ namespace Clickers.Models
             this.AttackValue = attackValue;
             this.Level = level;
             this.Inventory = new List<Item>();
+            this.Type = type;
             this.ImagePath = imagePath;
-
-
-
-
-
-
         }
     }
 }

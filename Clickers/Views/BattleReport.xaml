@@ -17,9 +17,13 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock x:Name="AllyUnitslose" />
-            <TextBlock x:Name="EnnemyUnitslose" Grid.Row="1"/>
+            <TextBlock x:Name="AllyUnitsRest" Grid.Row="1" />
+            <TextBlock x:Name="EnnemyUnitslose" Grid.Row="2"/>
+            <TextBlock x:Name="EnnemyUnitsRest" Grid.Row="3"/>
         </Grid>
         <Button x:Name="ToCastle" Content="ToCastle" Grid.Row="2" Width="50" Height="50" HorizontalAlignment="Left"/>
 

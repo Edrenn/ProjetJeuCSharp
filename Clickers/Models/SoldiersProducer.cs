@@ -2,46 +2,26 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Clickers.Models
 {
+    [Table("soldiersProducer")]
     public class SoldiersProducer : BaseDBEntity
     {
+        private int id;
+        [Key]
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
         private string name;
-        private int price;
-        private int level;
-        private bool isActive;
-        private Soldier allUnitsType;
-        private string imagePath;
-
-        public SoldiersProducer(string name, int price, int level, bool isActive, Soldier allUnitsType, string imagePath)
-        {
-            this.name = name;
-            this.price = price;
-            this.level = level;
-            this.isActive = isActive;
-            this.allUnitsType = allUnitsType;
-            this.imagePath = imagePath;
-        }
-
-        public string ImagePath
-        {
-            get { return imagePath; }
-            set { imagePath = value; }
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void RaisePropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
-        }
-
-        #region Properties
         public string Name
         {
             get
@@ -55,6 +35,7 @@ namespace Clickers.Models
             }
         }
 
+        private int price;
         public int Price
         {
             get
@@ -68,6 +49,7 @@ namespace Clickers.Models
             }
         }
 
+        private int level;
         public int Level
         {
             get
@@ -81,6 +63,7 @@ namespace Clickers.Models
             }
         }
 
+        private bool isActive;
         public bool IsActive
         {
             get
@@ -94,18 +77,34 @@ namespace Clickers.Models
             }
         }
 
-        public Soldier AllUnitsType
+        private Soldier soldierType;
+        public Soldier SoldierType
         {
             get
             {
-                return allUnitsType;
+                return soldierType;
             }
 
             set
             {
-                allUnitsType = value;
+                soldierType = value;
             }
         }
-        #endregion
+
+        private string imagePath;
+        public string ImagePath
+        {
+            get { return imagePath; }
+            set { imagePath = value; }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void RaisePropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
     }
 }

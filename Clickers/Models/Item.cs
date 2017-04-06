@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clickers.Models.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Clickers.Models
 {
-    public class Item
+    public class Item : BaseDBEntity
     {
         string name;
         int price;

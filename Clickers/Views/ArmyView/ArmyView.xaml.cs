@@ -21,7 +21,7 @@ namespace Clickers.Views.ArmyView
     /// </summary>
     public partial class ArmyView : UserControl
     {
-        ArmyViewModel controller;
+        public ArmyViewModel controller;
 
         public ArmyView()
         {

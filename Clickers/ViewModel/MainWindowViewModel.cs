@@ -44,6 +44,7 @@ namespace Clickers.ViewModel
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
             MainCastleView newPage = new MainCastleView();
+
             GameViewModel.Instance.CastleName = popUp.UsernameTB.Text;
             Switcher.Switch(newPage);
             popUp.Close();

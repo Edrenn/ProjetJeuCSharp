@@ -1,4 +1,5 @@
-﻿using Clickers.Models;
+﻿using Clickers.DataBaseManager;
+using Clickers.Models;
 using Clickers.ViewModel.SoldierProducer;
 using Clickers.Views;
 using Clickers.Views.TaverneView;
@@ -19,8 +20,8 @@ namespace Clickers.ViewModel
             set { view = value; }
         }
 
-        private Dictionary<string,Hero> heros;
-        public Dictionary<string,Hero> Heros
+        private Dictionary<string, Hero> heros;
+        public Dictionary<string, Hero> Heros
         {
             get { return heros; }
             set { heros = value; }
@@ -43,29 +44,29 @@ namespace Clickers.ViewModel
 
         public TaverneViewModel()
         {
+            MySQLManager<Hero> mySQLHeroManager = new MySQLManager<Hero>();
             Heros = new Dictionary<string, Hero>();
             this.View = new TaverneView();
-            Hero hero1 = new Hero("Provencal Le Gaulois", 50, 40, 20, 1, "../../Assets/Image/ProvencalLeGaulois.jpg");
-            Heros.Add("ProvencalLeGaulois", hero1);
-            Hero hero2 = new Hero("Robinet Des Bosquets", 50, 10, 40, 1, "../../Assets/Image/RobinetDesBosquets.jpg");
-            Heros.Add("RobinetDesBosquets", hero2);
-            Hero hero3 = new Hero("Cavalier De Waifrer", 50, 30, 30, 1, "../../Assets/Image/CavalierDeWaifrer.jpg");
-            Heros.Add("CavalierDeWaifrer", hero3);
+            int heroNumber = 1;
+            bool isOk = true;
+            List<Hero> herosList = new List<Hero>();
+            while (isOk)
+            {
+                Task<Hero> allHeros = mySQLHeroManager.Get(heroNumber);
+                if (allHeros.Result != null)
+                {
+                    herosList.Add(allHeros.Result);
+                    heroNumber += 1;
+                }
+                else
+                    isOk = false;
+            }
 
-            //HeroView heroView1 = new HeroView();
-            //heroView1.DataContext = hero1;
-            //View.AllHeroesSP.Children.Add(heroView1);
-
-            //HeroView heroView2 = new HeroView();
-            //heroView2.DataContext = hero2;
-            //View.AllHeroesSP.Children.Add(heroView2);
-
-            //HeroView heroView3 = new HeroView();
-            //heroView3.DataContext = hero3;
-            //View.AllHeroesSP.Children.Add(heroView3);
-            NewHeroView(hero1);
-            NewHeroView(hero2);
-            NewHeroView(hero3);
+            foreach (Hero hero in herosList)
+            {
+                Heros.Add(hero.Name, hero);
+                NewHeroView(hero);
+            }
 
             EventGenerator();
 
@@ -78,6 +79,7 @@ namespace Clickers.ViewModel
             View.AllHeroesSP.Children.Add(heroViewModel.View);
         }
 
+        #region Events
         private void EventGenerator()
         {
             View.ToCastleButton.Click += ToCastleButton_Click;
@@ -88,5 +90,7 @@ namespace Clickers.ViewModel
             MainCastleView castle = new MainCastleView();
             Switcher.Switch(castle);
         }
+
+        #endregion
     }
 }

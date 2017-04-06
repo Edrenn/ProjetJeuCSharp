@@ -99,16 +99,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataBaseManager\EntitiesLink\MySQLSoldiersProducer.cs" />
+    <Compile Include="DataBaseManager\SoldierProducerMySQLManager.cs" />
     <Compile Include="Models\Army.cs" />
     <Compile Include="Models\Battle.cs" />
     <Compile Include="Models\Castle.cs" />
     <Compile Include="Models\Hero.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\RessourceProducer.cs" />
+    <Compile Include="Models\Skill.cs" />
     <Compile Include="Models\Soldiers.cs" />
     <Compile Include="Models\SoldiersProducer.cs" />
     <Compile Include="ViewModel\Army\ArmyViewModel.cs" />
     <Compile Include="ViewModel\Army\BattleViewModel.cs" />
+    <Compile Include="ViewModel\Army\HeroFightViewModel.cs" />
     <Compile Include="ViewModel\AttackAlertViewModel.cs" />
     <Compile Include="ViewModel\GoldProducer\GoldFieldViewModel.cs" />
     <Compile Include="ViewModel\InfoBarViewModel.cs" />
@@ -133,6 +136,12 @@
     <Compile Include="Views\BattleReport.xaml.cs">
       <DependentUpon>BattleReport.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\HeroFightVIew\HeroFightView.xaml.cs">
+      <DependentUpon>HeroFightView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HeroFightVIew\SkillView.xaml.cs">
+      <DependentUpon>SkillView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SoldierView\SoldierProducerView.xaml.cs">
       <DependentUpon>SoldierProducerView.xaml</DependentUpon>
     </Compile>
@@ -154,7 +163,7 @@
     <Compile Include="Views\SoldierView\SoldierView.xaml.cs">
       <DependentUpon>SoldierView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TaverneView\HeroView.xaml.cs">
+    <Compile Include="Views\SoldierView\HeroView.xaml.cs">
       <DependentUpon>HeroView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TaverneView\TaverneView.xaml.cs">
@@ -195,6 +204,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\HeroFightVIew\HeroFightView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HeroFightVIew\SkillView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\SoldierView\SoldierProducerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -223,7 +240,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TaverneView\HeroView.xaml">
+    <Page Include="Views\SoldierView\HeroView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

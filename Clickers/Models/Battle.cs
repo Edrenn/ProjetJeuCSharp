@@ -1,4 +1,5 @@
 ﻿using Clickers.Models.Base;
+using Clickers.ViewModel.Army;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,35 +12,35 @@ namespace Clickers.Models
     {
         private Random rng;
         private Castle attackedCastle;
-        private List<Soldier> attackArmy;
-        private List<Soldier> defenseArmy;
+        private List<Soldier> attackSoldiers;
+        private List<Soldier> defenseSoldiers;
         private List<Soldier> alliesDeaths;
         private List<Soldier> defenseDeaths;
         private bool attackWin;
 
-        public List<Soldier> AttackArmy
+        public List<Soldier> AttackSoldiers
         {
             get
             {
-                return attackArmy;
+                return attackSoldiers;
             }
 
             set
             {
-                attackArmy = value;
+                attackSoldiers = value;
             }
         }
 
-        public List<Soldier> DefenseArmy
+        public List<Soldier> DefenseSoldiers
         {
             get
             {
-                return defenseArmy;
+                return defenseSoldiers;
             }
 
             set
             {
-                defenseArmy = value;
+                defenseSoldiers = value;
             }
         }
 
@@ -95,31 +96,75 @@ namespace Clickers.Models
             }
         }
 
-        public Battle(Army alliesArmy, List<Soldier> ennemiesArmy, Castle attackedCastle)
+        public Battle(Army attackingArmy, Army defenseArmy, Castle attackedCastle)
         {
+            AttackSoldiers = new List<Soldier>();
+            DefenseSoldiers = new List<Soldier>();
             AttackedCastle = attackedCastle;
             rng = new Random();
-            AttackArmy = new List<Soldier>();
-            foreach (Soldier soldier in alliesArmy.AllSoldiers)
+            if (attackingArmy.Hero != null && defenseArmy.Hero != null)
             {
-                Soldier newSoldier = new Soldier(soldier.Name, soldier.AttackValue, soldier.Price, soldier.ImagePath);
-                AttackArmy.Add(newSoldier);
+                List<Hero> attackingHeroList = new List<Hero>();
+                attackingHeroList.Add(attackingArmy.Hero);
+                List<Hero> defenseHeroList2 = new List<Hero>();
+                defenseHeroList2.Add(defenseArmy.Hero);
+                FightOfHeroes(attackingHeroList, defenseHeroList2);
             }
-            DefenseArmy = new List<Soldier>();
-            foreach (Soldier soldier in ennemiesArmy)
+            else if (attackingArmy.Hero != null && defenseArmy.Hero == null)
             {
-                Soldier newSoldier = new Soldier(soldier.Name, soldier.AttackValue, soldier.Price, soldier.ImagePath);
-                DefenseArmy.Add(newSoldier);
+                ArmyCreationWithHero(attackingArmy, AttackSoldiers, attackingArmy.Hero);
+                ArmyCreation(defenseArmy, DefenseSoldiers);
             }
-            
-            AttackDeaths = new List<Soldier>();
-            DefenseDeaths = new List<Soldier>();
-            Shuffle(AttackArmy);
-            Shuffle(DefenseArmy);
-            Fight();
+            else
+            {
+                ArmyCreation(attackingArmy, AttackSoldiers);
+                ArmyCreationWithHero(defenseArmy, DefenseSoldiers, defenseArmy.Hero);
+            }
+            //AttackDeaths = new List<Soldier>();
+            //DefenseDeaths = new List<Soldier>();
+            //Randomizer(AttackSoldiers);
+            //Randomizer(DefenseSoldiers);
+            //Fight();
         }
-        
-        private void Shuffle(List<Soldier> list)
+
+        private void FightOfHeroes(List<Hero> hero1, List<Hero> hero2)
+        {
+            //HeroFightViewModel heroFightViewModel = new HeroFightViewModel(hero1, hero2);
+        }
+
+        private void ArmyCreation(Army Army,List<Soldier> listToFill)
+        {
+            foreach (Soldier soldier in Army.AllSoldiers)
+            {
+                Soldier newSoldier = new Soldier();
+                newSoldier.InitializeSoldier(soldier);
+                listToFill.Add(newSoldier);
+            }
+
+        }
+
+        private void ArmyCreationWithHero(Army Army, List<Soldier> listToFill,Hero hero)
+        {
+            foreach (Soldier soldier in Army.AllSoldiers)
+            {
+                Soldier newSoldier;
+                if (hero != null && soldier.Name == hero.Type)
+                {
+                    newSoldier = new Soldier();
+                    newSoldier.InitializeSoldier(soldier);
+                    newSoldier.AttackValue += 5;
+                }
+                else
+                {
+                    newSoldier = new Soldier();
+                    newSoldier.InitializeSoldier(soldier);
+                }
+                listToFill.Add(newSoldier);
+            }
+
+        }
+
+        private void Randomizer(List<Soldier> list)
         {
             int n = list.Count;
             while (n > 1)
@@ -135,27 +180,31 @@ namespace Clickers.Models
         private void Fight()
         {
             int ennemySoldier = 0;
-            foreach (Soldier soldier in AttackArmy)
+            foreach (Soldier soldier in AttackSoldiers)
             {
                 while (soldier.Health > 0)
                 {
-                    DamageTest(soldier,DefenseArmy[ennemySoldier]);
-                    if (DefenseArmy[ennemySoldier].Health <= 0)
+                    DamageTest(soldier,DefenseSoldiers[ennemySoldier]);
+                    if (DefenseSoldiers[ennemySoldier].Health <= 0)
                     {
-                        DefenseDeaths.Add(DefenseArmy[ennemySoldier]);
+                        DefenseDeaths.Add(DefenseSoldiers[ennemySoldier]);
                         ennemySoldier++;
-                        if (ennemySoldier == DefenseArmy.Count)
+                        if (ennemySoldier == DefenseSoldiers.Count)
                         {
                             AttackWin = true;
                             AttackedCastle.Life -= 25;
                             break;
                         }
                     }
-                    DamageTest(DefenseArmy[ennemySoldier], soldier);
+                    DamageTest(DefenseSoldiers[ennemySoldier], soldier);
                     if (soldier.Health <= 0)
                     {
                         AttackDeaths.Add(soldier);
                     }
+                }
+                if (AttackWin == true)
+                {
+                    break;
                 }
             }
         }

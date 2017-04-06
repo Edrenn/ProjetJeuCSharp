@@ -121,6 +121,27 @@ namespace Clickers.Json
             }
             return existingSoldier;
         }
+
+        public List<Hero> GetAllHerosFromJSon()
+        {
+            string path = "D:\\Workspaces\\Clickers\\Clickers\\JsonConfig\\";
+            string file = "Heros.Json";
+            List<Hero> existingHero = new List<Hero>();
+
+            using (StreamReader fileItem = File.OpenText(path + file))
+            using (JsonTextReader reader = new JsonTextReader(fileItem))
+            {
+                string jSonContent = fileItem.ReadToEnd();
+                existingHero = JsonConvert.DeserializeObject<List<Hero>>(jSonContent, new JsonSerializerSettings());
+            }
+            foreach (Hero hero in existingHero)
+            {
+                hero.Name = ConvertToUTF8(hero.Name);
+
+            }
+            return existingHero;
+        }
+
         public string ConvertToUTF8(string itemToConvert)
         {
             byte[] utf8Bytes = new byte[itemToConvert.Length];
