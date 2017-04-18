@@ -6,7 +6,27 @@
     "AttackValue": "20",
     "Level": "1",
     "Type": "Chevalier",
-    "ImagePath": "../../Assets/Image/ProvencalLeGaulois.jpg"
+    "ImagePath": "../../Assets/Image/ProvencalLeGaulois.jpg",
+    "Skills": [
+      {
+        "Name": "Coup d'\u00C3\u00A9p\u00C3\u00A9e",
+        "Description": "Inflige à l'adversaire des d\u00C3\u00A9gats \u00C3\u00A9quivalent à la valeur d'attaque du H\u00C3\u00A9ros",
+        "Type": "Attaque"
+      },
+      {
+        "Name": "Bouclier miroir",
+        "Description": "Pare et renvoie les d\u00C3\u00A9gats qu'il allait recevoir à l'adversaire qui l'attaque",
+        "UseCounter": "3",
+        "Type": "Parade"
+      },
+      {
+        "Name": "Faux Coup",
+        "Description": "D\u00C3\u00A9clenche la parade de l'adversaire vis\u00C3\u00A9 sans prendre de d\u00C3\u00A9gat",
+        "UseCounter": "3",
+        "Type": "Feinte"
+      }
+    ]
+
   },
   {
     "Name": "Robinet Des Bosquets",
@@ -15,7 +35,27 @@
     "AttackValue": "40",
     "Level": "1",
     "Type": "Archer",
-    "ImagePath": "../../Assets/Image/RobinetDesBosquets.jpg"
+    "ImagePath": "../../Assets/Image/RobinetDesBosquets.jpg",
+    "Skills": [
+      {
+        "Name": "Fleche perforante",
+        "Description": "Inflige à l'adversaire des d\u00C3\u00A9gats \u00C3\u00A9quivalent à la valeur d'attaque du H\u00C3\u00A9ros",
+        "Type": "Attaque"
+      },
+      {
+        "Name": "Leurre",
+        "Description": "Esquive et renvoie les d\u00C3\u00A9gats qu'il allait recevoir à l'adversaire qui l'attaque",
+        "UseCounter": "3",
+        "Type": "Parade"
+      },
+      {
+        "Name": "Faux Coup",
+        "Description": "D\u00C3\u00A9clenche la parade de l'adversaire vis\u00C3\u00A9 sans prendre de d\u00C3\u00A9gat",
+        "UseCounter": "3",
+        "Type": "Feinte"
+      }
+
+    ]
   },
     {
     "Name": "Cavalier De Waifrer",
@@ -24,6 +64,26 @@
     "AttackValue": "30",
     "Level": "1",
     "Type": "Cavalier",
-    "ImagePath": "../../Assets/Image/CavalierDeWaifrer.jpg"
+    "ImagePath": "../../Assets/Image/CavalierDeWaifrer.jpg",
+    "Skills": [
+      {
+        "Name": "Charge",
+        "Description": "Inflige à l'adversaire des d\u00C3\u00A9gats \u00C3\u00A9quivalent à la valeur d'attaque du H\u00C3\u00A9ros",
+        "Type": "Attaque"
+      },
+      {
+        "Name": "Brouillard",
+        "Description": "Esquive et renvoie les d\u00C3\u00A9gats qu'il allait recevoir à l'adversaire qui l'attaque",
+        "UseCounter": "3",
+        "Type": "Parade"
+      },
+      {
+        "Name": "Jet de pierre",
+        "Description": "D\u00C3\u00A9clenche la parade de l'adversaire vis\u00C3\u00A9 sans prendre de d\u00C3\u00A9gat",
+        "UseCounter": "3",
+        "Type": "Feinte"
+      }
+
+    ]
   }
 ]

@@ -1,4 +1,5 @@
 ﻿using Clickers.Models.Base;
+using Clickers.Models.Skills;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -121,12 +122,18 @@ namespace Clickers.Models
             set { skills = value; }
         }
 
-
         private string imagePath;
         public string ImagePath
         {
             get { return imagePath; }
             set { imagePath = value; }
+        }
+
+        private bool isParing;
+        public bool IsParing
+        {
+            get { return isParing; }
+            set { isParing = value; }
         }
 
         public Hero() { }
@@ -141,6 +148,7 @@ namespace Clickers.Models
             this.Inventory = new List<Item>();
             this.Type = type;
             this.ImagePath = imagePath;
+            this.Skills = new List<Skill>();
         }
     }
 }

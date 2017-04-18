@@ -13,11 +13,11 @@ namespace Clickers.DataBaseManager
     [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     class MySQLManager<TEntity> : DbContext where TEntity : class
     {
-
+        MySQLFullDB initDBIfNotExist;
         public MySQLManager()
             : base(JsonManager.Instance.ReadFile<ConnectionString>(@"D:\Workspaces\Clickers\Clickers\JsonConfig\", @"MysqlConfig.json").ToString())
         {
-            MySQLFullDB initDBIfNotExist = new MySQLFullDB();
+            initDBIfNotExist = new MySQLFullDB();
         }
         public DbSet<TEntity> DbSetT { get; set; }
 
@@ -68,6 +68,11 @@ namespace Clickers.DataBaseManager
         }
 
         public async Task<TEntity> Get(Int32 id)
+        {
+            return await this.DbSetT.FindAsync(id) as TEntity;
+        }
+
+        public async Task<TEntity> Get(String id)
         {
             return await this.DbSetT.FindAsync(id) as TEntity;
         }
@@ -130,6 +135,11 @@ namespace Clickers.DataBaseManager
                 });
             
             return item;
+        }
+
+        public void initDatabase()
+        {
+            initDBIfNotExist.InitLocalMySQL();
         }
     }
 }

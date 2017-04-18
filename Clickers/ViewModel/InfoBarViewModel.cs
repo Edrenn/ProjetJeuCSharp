@@ -91,13 +91,24 @@ namespace Clickers.ViewModel
         {
             Random rd = new Random();
             Double timeBeforeNextAttack = rd.Next(3, 5);
-            Thread.Sleep(TimeSpan.FromMinutes(1));
+            Thread.Sleep(TimeSpan.FromSeconds(5));
+            AttackingSoon = true;
 
         }
 
         private void test()
         {
-            View.AttackAlertButton.Visibility = System.Windows.Visibility.Visible;
+            //var calc = new InfoBarUserControl();
+            ////calc.ProgressUpdate += (s, e) => Dispatcher.Invoke((Action)delegate ()
+            //{
+            //    View.AttackAlertButton.Visibility = System.Windows.Visibility.Visible;
+            //});
+
+        }
+        void StartCalc()
+        {
+            var calc = new InfoBarUserControl();
+            //Task calcTask = Task.Run(() => calc.TestMethod(input)); // #3
         }
 
 

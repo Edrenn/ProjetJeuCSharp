@@ -1,4 +1,5 @@
 ﻿using Clickers.Models;
+using Clickers.Models.Skills;
 using Clickers.ViewModel.SoldierProducer;
 using Clickers.Views.HeroFightVIew;
 using Clickers.Views.TaverneView;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Clickers.ViewModel.Army
 {
@@ -45,13 +47,72 @@ namespace Clickers.ViewModel.Army
 
         private void GenerateUI(Hero allyHero, Hero ennemyHero)
         {
-                HeroView AllyHeroView = new HeroView();
-                AllyHeroView.DataContext = allyHero;
-                this.View.AllyHeroSP.Children.Add(AllyHeroView);
+            HeroView AllyHeroView = new HeroView();
+            AllyHeroView.HeroInfoSP.Visibility = System.Windows.Visibility.Collapsed;
+            AllyHeroView.SelectHeroButton.Visibility = System.Windows.Visibility.Collapsed;
+            AllyHeroView.DataContext = allyHero;
+            foreach (Skill skill in allyHero.Skills)
+            {
+                switch (skill.Type)
+                {
+                    case "Attaque":
+                        SkillViewModel newSkill = new SkillViewModel(skill);
+                        newSkill.View.CounterTB.Visibility = System.Windows.Visibility.Collapsed;
+                        newSkill.View.SetValue(Grid.ColumnProperty, 0);
+                        View.SkillsGrid.Children.Add(newSkill.View);
+                        break;
+                    case "Parade":
+                        newSkill = new SkillViewModel(skill);
+                        newSkill.View.SetValue(Grid.ColumnProperty, 1);
+                        View.SkillsGrid.Children.Add(newSkill.View);
+                        break;
+                    case "Feinte":
+                        newSkill = new SkillViewModel(skill);
+                        newSkill.View.SetValue(Grid.ColumnProperty, 2);
+                        View.SkillsGrid.Children.Add(newSkill.View);
+                        break;
+                    default:
+                        break;
+                }
 
-                HeroView EnnemyHeroView = new HeroView();
-                EnnemyHeroView.DataContext = ennemyHero;
-                this.View.EnnemyHeroSP.Children.Add(EnnemyHeroView);
+            }
+            this.View.AllyHeroSP.Children.Add(AllyHeroView);
+
+            HeroView EnnemyHeroView = new HeroView();
+            EnnemyHeroView.HeroInfoSP.Visibility = System.Windows.Visibility.Collapsed;
+            EnnemyHeroView.SelectHeroButton.Visibility = System.Windows.Visibility.Collapsed;
+            EnnemyHeroView.DataContext = ennemyHero;
+            this.View.EnnemyHeroSP.Children.Add(EnnemyHeroView);
+        }
+
+        public void Feinte(Hero ennemyHero)
+        {
+            ennemyHero.IsParing = false;
+        }
+
+        public void Parade(Hero allyHero)
+        {
+            allyHero.IsParing = true;
+        }
+
+        public void Attack(Hero attackingHero, Hero defendingHero)
+        {
+            if (defendingHero.IsParing == false)
+            {
+                if (defendingHero.Armor > attackingHero.AttackValue)
+                {
+                    defendingHero.Armor -= attackingHero.AttackValue;
+                }
+                else if (defendingHero.Armor == 0)
+                {
+                    defendingHero.Life -= attackingHero.AttackValue;
+                }
+                else
+                {
+                    defendingHero.Life -= (attackingHero.AttackValue - defendingHero.Armor);
+                    defendingHero.Armor = 0;
+                }
+            }
         }
     }
 }

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Workspaces\Clickers\Clickers\App.xaml
-17-1142546030
+17685522255
 
-611670498776
-22-2046587918
-MainWindow.xaml;Views\ArmyView\ArmyView.xaml;Views\ArmyView\UnitView.xaml;Views\AttackAlertView\AttackAlertCounterView.xaml;Views\BattleReport.xaml;Views\HeroFightVIew\HeroFightView.xaml;Views\HeroFightVIew\SkillView.xaml;Views\SoldierView\SoldierProducerView.xaml;Views\SoldierView\SoldiersBuildingsView.xaml;Views\GoldView\GoldFieldView.xaml;Views\InfoBarUserControl.xaml;Views\MainCastleView.xaml;Views\GoldView\GoldProducerUserControl.xaml;Views\SoldierView\SoldierView.xaml;Views\SoldierView\HeroView.xaml;Views\TaverneView\TaverneView.xaml;Views\UsernameRegister.xaml;
+63-2048595350
+221117463760
+MainWindow.xaml;Views\ArmyView\ArmyView.xaml;Views\ArmyView\UnitView.xaml;Views\AttackAlertView\AttackAlertCounterView.xaml;Views\BattleReport.xaml;Views\HeroFightView\HeroFightView.xaml;Views\HeroFightView\SkillView.xaml;Views\SoldierView\SoldierProducerView.xaml;Views\SoldierView\SoldiersBuildingsView.xaml;Views\GoldView\GoldFieldView.xaml;Views\InfoBarUserControl.xaml;Views\MainCastleView.xaml;Views\GoldView\GoldProducerUserControl.xaml;Views\SoldierView\SoldierView.xaml;Views\SoldierView\HeroView.xaml;Views\TaverneView\TaverneView.xaml;Views\UsernameRegister.xaml;
 
 True
 

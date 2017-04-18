@@ -1,4 +1,5 @@
 ﻿using Clickers.DataBaseManager;
+using Clickers.Models.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Clickers.Models
 {
-    public class Army
+    public class Army : BaseDBEntity
     {
         private Hero hero;
         public Hero Hero

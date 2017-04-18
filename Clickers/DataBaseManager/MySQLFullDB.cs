@@ -14,6 +14,7 @@ namespace Clickers.DataBaseManager
     [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     class MySQLFullDB : DbContext
     {
+        public DbSet<Castle> DbSetCastle { get; set; }
         public DbSet<RessourceProducer> DbSetRessourceProducer { get; set; }
         public DbSet<SoldiersProducer> DbSetSoldiersProducer { get; set; }
         public DbSet<Soldier> DbSetSoldiers { get; set; }
@@ -22,10 +23,10 @@ namespace Clickers.DataBaseManager
         public MySQLFullDB()
             : base(JsonManager.Instance.ReadFile<ConnectionString>(@"D:\Workspaces\Clickers\Clickers\JsonConfig\", @"MysqlConfig.json").ToString())
         {
-            InitLocalMySQL();
+
         }
 
-        private async void InitLocalMySQL()
+        public async void InitLocalMySQL()
         {
             if (this.Database.CreateIfNotExists())
             {
@@ -45,6 +46,14 @@ namespace Clickers.DataBaseManager
                     DbSetHeros.Add(hero);
                 }
                 this.SaveChangesAsync();
+            }
+        }
+
+        public async void DeleteDatabase()
+        {
+            if (!(this.Database.CreateIfNotExists()))
+            {
+                this.Database.Delete();
             }
         }
     }

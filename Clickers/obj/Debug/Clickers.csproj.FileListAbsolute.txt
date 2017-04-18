@@ -22,7 +22,6 @@ D:\Workspaces\Clickers\Clickers\bin\Debug\EntityFramework.SqlServer.dll
 D:\Workspaces\Clickers\Clickers\bin\Debug\Faker.dll
 D:\Workspaces\Clickers\Clickers\bin\Debug\MySql.Data.dll
 D:\Workspaces\Clickers\Clickers\bin\Debug\mysql.data.entity.EF6.dll
-D:\Workspaces\Clickers\Clickers\bin\Debug\Newtonsoft.Json.dll
 D:\Workspaces\Clickers\Clickers\bin\Debug\EntityFramework.xml
 D:\Workspaces\Clickers\Clickers\bin\Debug\EntityFramework.SqlServer.xml
 D:\Workspaces\Clickers\Clickers\bin\Debug\Newtonsoft.Json.xml
@@ -66,6 +65,6 @@ D:\Workspaces\Clickers\Clickers\obj\Debug\Views\HeroFightVIew\HeroFightView.g.cs
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\HeroFightVIew\SkillView.g.cs
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\HeroFightVIew\HeroFightView.baml
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\HeroFightVIew\SkillView.baml
-D:\Workspaces\Clickers\Clickers\obj\Debug\Clickers.csprojResolveAssemblyReference.cache
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\SoldierView\HeroView.g.cs
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\SoldierView\HeroView.baml
+D:\Workspaces\Clickers\Clickers\obj\Debug\Clickers.csprojResolveAssemblyReference.cache

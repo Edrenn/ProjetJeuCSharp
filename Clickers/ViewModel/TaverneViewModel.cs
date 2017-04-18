@@ -1,4 +1,6 @@
-﻿using Clickers.DataBaseManager;
+﻿
+using Clickers.DataBaseManager;
+using Clickers.DataBaseManager.EntitiesLink;
 using Clickers.Models;
 using Clickers.ViewModel.SoldierProducer;
 using Clickers.Views;
@@ -56,6 +58,9 @@ namespace Clickers.ViewModel
                 if (allHeros.Result != null)
                 {
                     herosList.Add(allHeros.Result);
+                    Hero test = allHeros.Result;
+                    MySQLHero testReference = new MySQLHero();
+                    test = testReference.GetSkills(test);
                     heroNumber += 1;
                 }
                 else

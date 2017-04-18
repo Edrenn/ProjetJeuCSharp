@@ -34,6 +34,24 @@ namespace Clickers.Views
             InitializeComponent();
             this.DataContext = GameViewModel.Instance;
             this.controller = new InfoBarViewModel(this);
+            //ArmyViewModel
         }
+
+        public event EventHandler ProgressUpdate;
+
+        public void testMethod(object input)
+        {
+            ////part 1
+            //if (ProgressUpdate != null)
+            //    ProgressUpdate(this, new EventArgs(status));
+            ////part 2
+        }
+        public void TestMethod()
+        {
+            //part 1
+            //ProgressUpdate.Raise(this, status); // #6 - status is of type YourStatus
+                                                //part 2
+        }
+
     }
 }

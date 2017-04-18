@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
         <Label Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">Nom du Jeu</Label>
         <Button x:Name="newGameButton" Content="Nouvelle Partie" Grid.Row="1" Width="400"/>
-        <Button x:Name="loadGameButton" Content="Charger une Partie" Grid.Row="3" Width="400"/>
+        <Button x:Name="loadGameButton" Content="Reprendre la Partie" Grid.Row="3" Width="400"/>
         <Button x:Name="creditGameButton" Content="Crédits" Grid.Row="5" Width="400"/>
     </Grid>
 </Window>
