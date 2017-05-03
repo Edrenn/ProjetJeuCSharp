@@ -39,14 +39,24 @@ namespace Clickers.ViewModel
 
         private void ToBattleButton_Click(object sender, RoutedEventArgs e)
         {
-            GameViewModel.Instance.EnnemyCastle.Army.GenerateHero();
-            if (GameViewModel.Instance.MainCastle.Army.Hero != null && GameViewModel.Instance.EnnemyCastle.Army.Hero != null)
+            if (GameViewModel.Instance.MainCastle.Army.AllSoldiers.Count >= 2)
             {
-                HeroFightViewModel newDuel = new HeroFightViewModel(GameViewModel.Instance.MainCastle.Army.Hero, GameViewModel.Instance.EnnemyCastle.Army.Hero);
+                GameViewModel.Instance.EnnemyCastle.Army.GenerateHero();
+                if (GameViewModel.Instance.MainCastle.Army.Hero != null && GameViewModel.Instance.EnnemyCastle.Army.Hero != null)
+                {
+                    if (!(GameViewModel.Instance.MainCastle.Army.Hero.Life <= 0) || !(GameViewModel.Instance.EnnemyCastle.Army.Hero.Life <= 0))
+                    {
+                        HeroFightViewModel newDuel = new HeroFightViewModel(GameViewModel.Instance.MainCastle.Army, GameViewModel.Instance.EnnemyCastle.Army, GameViewModel.Instance.EnnemyCastle);
+                    }
+                }
+                else
+                {
+                    Battle newBattle = new Battle(GameViewModel.Instance.MainCastle.Army, GameViewModel.Instance.EnnemyCastle.Army, GameViewModel.Instance.EnnemyCastle);
+                }
             }
             else
             {
-                Battle newBattle = new Battle(GameViewModel.Instance.MainCastle.Army, GameViewModel.Instance.EnnemyCastle.Army, GameViewModel.Instance.EnnemyCastle);
+                System.Windows.MessageBox.Show("Il vous faut au minimum 2 soldats");
             }
         }
 

@@ -24,7 +24,6 @@ D:\Workspaces\Clickers\Clickers\bin\Debug\MySql.Data.dll
 D:\Workspaces\Clickers\Clickers\bin\Debug\mysql.data.entity.EF6.dll
 D:\Workspaces\Clickers\Clickers\bin\Debug\EntityFramework.xml
 D:\Workspaces\Clickers\Clickers\bin\Debug\EntityFramework.SqlServer.xml
-D:\Workspaces\Clickers\Clickers\bin\Debug\Newtonsoft.Json.xml
 D:\Workspaces\Clickers\Clickers\obj\Debug\MainWindow.g.cs
 D:\Workspaces\Clickers\Clickers\obj\Debug\App.g.cs
 D:\Workspaces\Clickers\Clickers\obj\Debug\Clickers_MarkupCompile.cache
@@ -61,10 +60,12 @@ D:\Workspaces\Clickers\Clickers\obj\Debug\Views\AttackAlertView\AttackAlertCount
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\AttackAlertView\AttackAlertCounterView.baml
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\TaverneView\TaverneView.g.cs
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\TaverneView\TaverneView.baml
-D:\Workspaces\Clickers\Clickers\obj\Debug\Views\HeroFightVIew\HeroFightView.g.cs
-D:\Workspaces\Clickers\Clickers\obj\Debug\Views\HeroFightVIew\SkillView.g.cs
-D:\Workspaces\Clickers\Clickers\obj\Debug\Views\HeroFightVIew\HeroFightView.baml
-D:\Workspaces\Clickers\Clickers\obj\Debug\Views\HeroFightVIew\SkillView.baml
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\SoldierView\HeroView.g.cs
 D:\Workspaces\Clickers\Clickers\obj\Debug\Views\SoldierView\HeroView.baml
 D:\Workspaces\Clickers\Clickers\obj\Debug\Clickers.csprojResolveAssemblyReference.cache
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\HeroFightViews\ActionsBarView.g.cs
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\HeroFightViews\HeroDuelFightView.g.cs
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\HeroFightViews\SkillView.g.cs
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\HeroFightViews\ActionsBarView.baml
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\HeroFightViews\HeroDuelFightView.baml
+D:\Workspaces\Clickers\Clickers\obj\Debug\Views\HeroFightViews\SkillView.baml

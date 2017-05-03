@@ -116,12 +116,13 @@
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\RessourceProducer.cs" />
     <Compile Include="Models\Skills\Skill.cs" />
+    <Compile Include="Models\Skills\SkillsEnum.cs" />
     <Compile Include="Models\Soldiers.cs" />
     <Compile Include="Models\SoldiersProducer.cs" />
-    <Compile Include="ViewModel\Army\ArmyViewModel.cs" />
-    <Compile Include="ViewModel\Army\BattleViewModel.cs" />
-    <Compile Include="ViewModel\Army\HeroFightViewModel.cs" />
-    <Compile Include="ViewModel\Army\SkillViewModel.cs" />
+    <Compile Include="ViewModel\ArmyFolder\ArmyViewModel.cs" />
+    <Compile Include="ViewModel\ArmyFolder\BattleViewModel.cs" />
+    <Compile Include="ViewModel\ArmyFolder\HeroFightViewModel.cs" />
+    <Compile Include="ViewModel\ArmyFolder\SkillViewModel.cs" />
     <Compile Include="ViewModel\AttackAlertViewModel.cs" />
     <Compile Include="ViewModel\GoldProducer\GoldFieldViewModel.cs" />
     <Compile Include="ViewModel\InfoBarViewModel.cs" />
@@ -146,10 +147,13 @@
     <Compile Include="Views\BattleReport.xaml.cs">
       <DependentUpon>BattleReport.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HeroFightView\HeroFightView.xaml.cs">
-      <DependentUpon>HeroFightView.xaml</DependentUpon>
+    <Compile Include="Views\HeroFightViews\ActionsBarView.xaml.cs">
+      <DependentUpon>ActionsBarView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HeroFightView\SkillView.xaml.cs">
+    <Compile Include="Views\HeroFightViews\HeroDuelFightView.xaml.cs">
+      <DependentUpon>HeroDuelFightView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HeroFightViews\SkillView.xaml.cs">
       <DependentUpon>SkillView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SoldierView\SoldierProducerView.xaml.cs">
@@ -214,11 +218,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HeroFightView\HeroFightView.xaml">
+    <Page Include="Views\HeroFightViews\ActionsBarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HeroFightView\SkillView.xaml">
+    <Page Include="Views\HeroFightViews\HeroDuelFightView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HeroFightViews\SkillView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

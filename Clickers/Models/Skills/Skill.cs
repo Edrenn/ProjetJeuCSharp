@@ -1,13 +1,14 @@
 ﻿using Clickers.Models.Base;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Clickers.Models.Skills
 {
-    public class Skill : BaseDBEntity
+    public class Skill : BaseDBEntity, INotifyPropertyChanged
     {
         private string name;
         public string Name
@@ -45,6 +46,15 @@ namespace Clickers.Models.Skills
             this.Name = name;
             this.Description = description;
             this.UseCounter = useCounter;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void RaisePropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
         }
 
 

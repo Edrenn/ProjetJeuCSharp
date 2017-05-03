@@ -1,5 +1,6 @@
 ﻿using Clickers.DataBaseManager;
 using Clickers.Models.Base;
+using Clickers.DataBaseManager.EntitiesLink;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,16 +42,19 @@ namespace Clickers.Models
             Random random = new Random();
             MySQLManager<Hero> MyHeroSQLManager = new MySQLManager<Hero>();
             Hero newHero = null;
+            MySQLHero heroSQL = new MySQLHero();
             int testTypeHero = random.Next(0, 40);
             if (testTypeHero <= 10)
             {
                 Task<Hero> TaskHero = MyHeroSQLManager.Get(1);
                 newHero = TaskHero.Result;
+                newHero = heroSQL.GetSkills(newHero);
             }
             else if (testTypeHero >= 20 && testTypeHero < 30)
             {
                 Task<Hero> TaskHero = MyHeroSQLManager.Get(2);
                 newHero = TaskHero.Result;
+                newHero = heroSQL.GetSkills(newHero);
             }
             else if (testTypeHero > 40)
             {
@@ -60,6 +64,7 @@ namespace Clickers.Models
             {
                 Task<Hero> TaskHero = MyHeroSQLManager.Get(3);
                 newHero = TaskHero.Result;
+                newHero = heroSQL.GetSkills(newHero);
             }
             GameViewModel.Instance.EnnemyCastle.Army.Hero = newHero;
         }

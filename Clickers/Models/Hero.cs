@@ -2,13 +2,14 @@
 using Clickers.Models.Skills;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Clickers.Models
 {
-    public class Hero : BaseDBEntity
+    public class Hero : BaseDBEntity, INotifyPropertyChanged
     {
         string name;
         public string Name
@@ -35,6 +36,7 @@ namespace Clickers.Models
             set
             {
                 life = value;
+                RaisePropertyChanged("Life");
             }
         }
 
@@ -49,6 +51,7 @@ namespace Clickers.Models
             set
             {
                 armor = value;
+                RaisePropertyChanged("Armor");
             }
         }
 
@@ -149,6 +152,14 @@ namespace Clickers.Models
             this.Type = type;
             this.ImagePath = imagePath;
             this.Skills = new List<Skill>();
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void RaisePropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
         }
     }
 }
